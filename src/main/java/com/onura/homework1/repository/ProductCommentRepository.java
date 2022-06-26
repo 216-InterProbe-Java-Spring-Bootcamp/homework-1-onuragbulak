@@ -8,12 +8,12 @@ import java.util.List;
 
 public interface ProductCommentRepository extends JpaRepository<ProductComment, Long>
 {
-    List<ProductComment> findAllProductCommentByProductId(Long id);
+    List<ProductComment> findAllByProductId(Long id);
 
-    List<ProductComment> findAllProductCommentByProductIdAndCommentDateBetween(Long id, Date commentDateStart, Date commentDateEnd);
+    List<ProductComment> findAllByProductIdAndCommentDateBetween(Long id, Date commentDateStart, Date commentDateEnd);
 
-    List<ProductComment> findAllProductCommentByCustomerId(Long id);
+    List<ProductComment> findAllByCustomerId(Long id);
 
-    List<ProductComment> findAllProductCommentByCustomerIdAndCommentDateBetween(Long id, Date commentDateStart, Date commentDateEnd);
+    List<ProductComment> findAllByCustomerIdAndCommentDateBetween(Long id, Date commentDateStart, Date commentDateEnd);
 
 }

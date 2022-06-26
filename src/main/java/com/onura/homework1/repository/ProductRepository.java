@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    List<Product> findAllProductByExpirationDateLessThan(Date currentDate);
+    List<Product> findAllByExpirationDateLessThan(Date currentDate);
 
-    List<Product> findAllProductByExpirationDateIsGreaterThanEqualOrExpirationDateIsNull(Date currentDate);
+    List<Product> findAllByExpirationDateIsGreaterThanEqualOrExpirationDateIsNull(Date currentDate);
 }

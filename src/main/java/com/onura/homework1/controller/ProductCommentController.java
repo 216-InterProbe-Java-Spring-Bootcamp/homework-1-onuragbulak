@@ -27,26 +27,26 @@ public class ProductCommentController {
     }
 
     @GetMapping("/product/{id}")
-    public List<ProductComment> findAllProductCommentByProductId(@PathVariable Long id){
-        return productCommentRepository.findAllProductCommentByProductId(id);
+    public List<ProductComment> findAllByProductId(@PathVariable Long id){
+        return productCommentRepository.findAllByProductId(id);
     }
 
     @GetMapping("/customer/{id}")
-    public List<ProductComment> findAllProductCommentByCustomerId(@PathVariable Long id){
-        return productCommentRepository.findAllProductCommentByCustomerId(id);
+    public List<ProductComment> findAllByCustomerId(@PathVariable Long id){
+        return productCommentRepository.findAllByCustomerId(id);
     }
 
     @GetMapping("product/{startDate}/{endDate}/{id}")
-    public List<ProductComment> findAllProductCommentByProductIdAndCommentDate(@PathVariable Long id
+    public List<ProductComment> findAllByProductIdAndCommentDate(@PathVariable Long id
                                                                              , @PathVariable(value = "startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date commentDateStart
                                                                              , @PathVariable(value = "endDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date commentDateEnd){
-        return productCommentRepository.findAllProductCommentByProductIdAndCommentDateBetween(id,commentDateStart,commentDateEnd);
+        return productCommentRepository.findAllByProductIdAndCommentDateBetween(id,commentDateStart,commentDateEnd);
     }
 
     @GetMapping("customer/{startDate}/{endDate}/{id}")
-    public List<ProductComment> findAllProductCommentByCustomerIdAndCommentDate(@PathVariable Long id
+    public List<ProductComment> findAllByCustomerIdAndCommentDate(@PathVariable Long id
                                                                               , @PathVariable(value = "startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date commentDateStart
                                                                               , @PathVariable(value = "endDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date commentDateEnd){
-        return productCommentRepository.findAllProductCommentByCustomerIdAndCommentDateBetween(id,commentDateStart,commentDateEnd);
+        return productCommentRepository.findAllByCustomerIdAndCommentDateBetween(id,commentDateStart,commentDateEnd);
     }
 }

@@ -29,13 +29,13 @@ public class ProductController {
     @GetMapping("expired/{currentDate}")
     public List<Product> findAllExpiredProducts(@PathVariable(value = "currentDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date currentDate){
 
-        return productRepository.findAllProductByExpirationDateLessThan(currentDate);
+        return productRepository.findAllByExpirationDateLessThan(currentDate);
     }
 
     @GetMapping("/{currentDate}")
     public List<Product> findAllNonExpiredProducts(@PathVariable(value = "currentDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date currentDate){
 
-        return productRepository.findAllProductByExpirationDateIsGreaterThanEqualOrExpirationDateIsNull(currentDate);
+        return productRepository.findAllByExpirationDateIsGreaterThanEqualOrExpirationDateIsNull(currentDate);
     }
 
 }
